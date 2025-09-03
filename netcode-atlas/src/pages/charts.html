@@ -1,0 +1,147 @@
+<!-- charts.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Charts - NetCode Atlas</title>
+  <meta name="description" content="Interactive data visualizations about web technologies and internet protocols">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Data Visualizations</h1>
+        <p>Explore interactive charts and data about web technologies and internet protocols</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-section">
+          <div class="chart-header">
+            <h2>DNS Resolver Latency Comparison</h2>
+            <button class="btn btn-outline export-btn" data-chart="dns-latency-chart">Export PNG</button>
+          </div>
+          <div class="chart-container">
+            <canvas id="dns-latency-chart"></canvas>
+          </div>
+          <p class="text-center">Average response times in milliseconds for popular DNS resolvers. Lower values indicate better performance.</p>
+        </div>
+
+        <div class="content-section">
+          <div class="chart-header">
+            <h2>Internet Protocols Adoption Over Time</h2>
+            <button class="btn btn-outline export-btn" data-chart="protocols-adoption-chart">Export PNG</button>
+          </div>
+          <div class="chart-container">
+            <canvas id="protocols-adoption-chart"></canvas>
+          </div>
+          <p class="text-center">Adoption rates of different HTTP versions and TLS protocols from 2015 to 2024.</p>
+        </div>
+
+        <div class="content-section">
+          <div class="chart-header">
+            <h2>Top HTML Tags Usage</h2>
+            <button class="btn btn-outline export-btn" data-chart="html-tags-chart">Export PNG</button>
+          </div>
+          <div class="chart-container">
+            <canvas id="html-tags-chart"></canvas>
+          </div>
+          <p class="text-center">Percentage usage of the most common HTML tags across millions of web pages.</p>
+        </div>
+
+        <div class="content-section">
+          <div class="chart-header">
+            <h2>Top-Level Domain Market Share</h2>
+            <button class="btn btn-outline export-btn" data-chart="tld-share-chart">Export PNG</button>
+          </div>
+          <div class="chart-container">
+            <canvas id="tld-share-chart"></canvas>
+          </div>
+          <p class="text-center">Market share distribution of the most popular top-level domains on the internet.</p>
+        </div>
+
+        <div class="content-section">
+          <h2>Data Sources & Methodology</h2>
+          <p>All charts on this page are generated using real-world data from various sources including:</p>
+          <ul>
+            <li>DNS performance measurements from independent testing platforms</li>
+            <li>Web technology surveys and adoption reports</li>
+            <li>Analysis of millions of web pages for HTML tag usage</li>
+            <li>Domain registration statistics from ICANN and domain registrars</li>
+          </ul>
+          <p>Data is updated quarterly to reflect the latest trends and changes in technology adoption.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Load components
+    window.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar functionality
+          if (typeof initNavbar === 'function') initNavbar();
+        });
+      
+      // Load footer
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+      
+      // Render all charts
+      if (typeof renderDNSLatencyChart === 'function') renderDNSLatencyChart();
+      if (typeof renderProtocolsAdoptionChart === 'function') renderProtocolsAdoptionChart();
+      if (typeof renderHTMLTagsChart === 'function') renderHTMLTagsChart();
+      if (typeof renderTLDShareChart === 'function') renderTLDShareChart();
+      
+      // Add export functionality
+      const exportButtons = document.querySelectorAll('.export-btn');
+      exportButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const chartId = this.getAttribute('data-chart');
+          const filename = `netcode-atlas-${chartId}.png`;
+          if (typeof chartManager !== 'undefined' && typeof chartManager.exportChart === 'function') {
+            chartManager.exportChart(chartId, filename);
+          }
+        });
+      });
+    });
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/eastereggs.js"></script>
+</body>
+</html>

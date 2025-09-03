@@ -1,0 +1,12 @@
+[
+  {"resolver": "Cloudflare (1.1.1.1)", "latency": 9.2},
+  {"resolver": "Google (8.8.8.8)", "latency": 15.7},
+  {"resolver": "OpenDNS (208.67.222.222)", "latency": 22.4},
+  {"resolver": "Quad9 (9.9.9.9)", "latency": 18.9},
+  {"resolver": "Comodo (8.26.56.26)", "latency": 28.1},
+  {"resolver": "Verisign (64.6.64.6)", "latency": 24.7},
+  {"resolver": "Level3 (4.2.2.2)", "latency": 31.5},
+  {"resolver": "DNS.WATCH (84.200.69.80)", "latency": 35.2},
+  {"resolver": "OpenNIC (23.94.60.240)", "latency": 42.8},
+  {"resolver": "SafeDNS (195.46.39.39)", "latency": 38.3}
+]

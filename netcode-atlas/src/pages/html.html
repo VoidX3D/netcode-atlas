@@ -1,0 +1,229 @@
+<!-- html.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Guide - NetCode Atlas</title>
+  <meta name="description" content="Learn HTML5, semantic markup, forms, and modern web structure">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>HyperText Markup Language (HTML)</h1>
+        <p>The standard markup language for documents designed to be displayed in a web browser</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-section">
+          <div class="content-grid">
+            <div>
+              <h2>What is HTML?</h2>
+              <p>HTML (HyperText Markup Language) is the code that is used to structure a web page and its content. It consists of a series of elements that you use to enclose, or wrap, different parts of the content to make it appear a certain way, or act in a certain way.</p>
+              <p>HTML was created by Tim Berners-Lee in 1991 and has evolved through multiple versions, with HTML5 being the current standard.</p>
+            </div>
+            <div class="content-image">
+              <img src="../../public/images/html-structure.svg" alt="HTML document structure diagram" width="500" height="300">
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Most Used HTML Tags</h2>
+          <p>Some HTML tags are used more frequently than others. Here are the most commonly used HTML tags across the web:</p>
+          <div class="chart-container">
+            <canvas id="html-tags-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>HTML Document Structure</h2>
+          <pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Document Title&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Main Heading&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#section1"&gt;Section 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#section2"&gt;Section 2&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+  
+  &lt;main&gt;
+    &lt;section id="section1"&gt;
+      &lt;h2&gt;Section Heading&lt;/h2&gt;
+      &lt;p&gt;Paragraph text with a &lt;a href="#"&gt;link&lt;/a&gt;.&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+  
+  &lt;footer&gt;
+    &lt;p&gt;Copyright information&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        </div>
+
+        <div class="content-section">
+          <h2>Semantic HTML Elements</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>&lt;header&gt;</h3>
+              <p>Represents introductory content, typically a group of introductory or navigational aids.</p>
+            </div>
+            <div class="card">
+              <h3>&lt;nav&gt;</h3>
+              <p>Represents a section of a page whose purpose is to provide navigation links.</p>
+            </div>
+            <div class="card">
+              <h3>&lt;main&gt;</h3>
+              <p>Represents the dominant content of the body of a document.</p>
+            </div>
+            <div class="card">
+              <h3>&lt;article&gt;</h3>
+              <p>Represents a self-contained composition in a document, page, or site.</p>
+            </div>
+            <div class="card">
+              <h3>&lt;section&gt;</h3>
+              <p>Represents a generic standalone section of a document.</p>
+            </div>
+            <div class="card">
+              <h3>&lt;aside&gt;</h3>
+              <p>Represents a portion of a document whose content is only indirectly related to the main content.</p>
+            </div>
+            <div class="card">
+              <h3>&lt;footer&gt;</h3>
+              <p>Represents a footer for its nearest sectioning content or sectioning root element.</p>
+            </div>
+            <div class="card">
+              <h3>&lt;figure&gt; & &lt;figcaption&gt;</h3>
+              <p>Represents self-contained content, potentially with an optional caption.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>HTML Forms</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Basic Form Structure</h3>
+              <pre><code class="language-html">&lt;form action="/submit" method="post"&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  
+  &lt;label for="message"&gt;Message:&lt;/label&gt;
+  &lt;textarea id="message" name="message"&gt;&lt;/textarea&gt;
+  
+  &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+            </div>
+            <div>
+              <h3>HTML5 Input Types</h3>
+              <ul>
+                <li><code>type="email"</code> - For email addresses</li>
+                <li><code>type="url"</code> - For web addresses</li>
+                <li><code>type="tel"</code> - For telephone numbers</li>
+                <li><code>type="number"</code> - For numerical input</li>
+                <li><code>type="range"</code> - For sliders</li>
+                <li><code>type="date"</code> - For date selection</li>
+                <li><code>type="color"</code> - For color selection</li>
+                <li><code>type="search"</code> - For search fields</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Accessibility in HTML</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Semantic HTML</h3>
+              <p>Using the correct HTML elements for their intended purpose provides built-in accessibility.</p>
+              
+              <h3>ARIA Attributes</h3>
+              <p>Accessible Rich Internet Applications (ARIA) attributes provide additional semantic information.</p>
+              <code>&lt;div role="navigation" aria-label="Main navigation"&gt;</code>
+            </div>
+            <div>
+              <h3>Alt Text for Images</h3>
+              <p>Always provide descriptive alt text for images to assist screen readers.</p>
+              <code>&lt;img src="image.jpg" alt="Descriptive text about the image"&gt;</code>
+              
+              <h3>Form Labels</h3>
+              <p>Properly associate labels with form controls for better accessibility.</p>
+              <code>&lt;label for="username"&gt;Username:&lt;/label&gt;
+&lt;input type="text" id="username" name="username"&gt;</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Load components
+    window.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar functionality
+          if (typeof initNavbar === 'function') initNavbar();
+        });
+      
+      // Load footer
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+      
+      // Render HTML tags chart
+      if (typeof renderHTMLTagsChart === 'function') {
+        renderHTMLTagsChart();
+      }
+    });
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/eastereggs.js"></script>
+</body>
+</html>

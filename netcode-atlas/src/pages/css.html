@@ -1,0 +1,269 @@
+<!-- css.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Guide - NetCode Atlas</title>
+  <meta name="description" content="Learn CSS3, Flexbox, Grid, animations, and responsive design">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Cascading Style Sheets (CSS)</h1>
+        <p>The language used to style and layout web pages</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-section">
+          <div class="content-grid">
+            <div>
+              <h2>What is CSS?</h2>
+              <p>CSS (Cascading Style Sheets) is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.</p>
+              <p>CSS was first proposed by Håkon Wium Lie in 1994 and has evolved through multiple versions, with CSS3 being the current standard.</p>
+            </div>
+            <div class="content-image">
+              <img src="../../public/images/css-layers.svg" alt="CSS box model and layers diagram" width="500" height="300">
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>CSS Box Model</h2>
+          <p>Every element in web design is a rectangular box. The CSS box model describes how these boxes are sized and spaced:</p>
+          <div class="content-grid">
+            <div>
+              <h3>Box Model Components</h3>
+              <ul>
+                <li><strong>Content</strong> - The actual content of the box</li>
+                <li><strong>Padding</strong> - Clears an area around the content</li>
+                <li><strong>Border</strong> - A border that goes around the padding</li>
+                <li><strong>Margin</strong> - Clears an area outside the border</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Box Sizing</h3>
+              <p>The <code>box-sizing</code> property controls how the box model is calculated:</p>
+              <pre><code class="language-css">/* Traditional box model */
+box-sizing: content-box; /* width = content width */
+
+/* Modern box model */
+box-sizing: border-box; /* width = content + padding + border */</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>CSS Layout Systems</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Flexbox</h3>
+              <p>One-dimensional layout model for arranging items in rows or columns.</p>
+              <pre><code class="language-css">.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}</code></pre>
+            </div>
+            <div class="card">
+              <h3>CSS Grid</h3>
+              <p>Two-dimensional layout system for designing complex web layouts.</p>
+              <pre><code class="language-css">.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}</code></pre>
+            </div>
+            <div class="card">
+              <h3>Positioning</h3>
+              <p>Control the position of elements using static, relative, absolute, fixed, or sticky positioning.</p>
+              <pre><code class="language-css">.element {
+  position: relative;
+  top: 20px;
+  left: 30px;
+}</code></pre>
+            </div>
+            <div class="card">
+              <h3>Floats</h3>
+              <p>Legacy technique for wrapping text around images or creating layouts.</p>
+              <pre><code class="language-css">.image {
+  float: left;
+  margin-right: 20px;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>CSS Selectors and Specificity</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Common Selectors</h3>
+              <ul>
+                <li><code>element</code> - Selects all elements of the specified type</li>
+                <li><code>.class</code> - Selects elements with the specified class</li>
+                <li><code>#id</code> - Selects the element with the specified ID</li>
+                <li><code>[attribute]</code> - Selects elements with the specified attribute</li>
+                <li><code>:pseudo-class</code> - Selects elements in a specific state</li>
+                <li><code>::pseudo-element</code> - Styles specific parts of an element</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Specificity Hierarchy</h3>
+              <p>When multiple rules apply to an element, specificity determines which rule takes precedence:</p>
+              <ol>
+                <li>Inline styles (1000 points)</li>
+                <li>IDs (100 points)</li>
+                <li>Classes, attributes, pseudo-classes (10 points)</li>
+                <li>Elements, pseudo-elements (1 point)</li>
+              </ol>
+              <p>The rule with the highest specificity wins. Use <code>!important</code> sparingly as it overrides all other rules.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Responsive Design</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Media Queries</h3>
+              <p>Apply different styles based on device characteristics like screen width, height, or orientation.</p>
+              <pre><code class="language-css">@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}</code></pre>
+            </div>
+            <div>
+              <h3>Responsive Units</h3>
+              <ul>
+                <li><code>%</code> - Percentage of parent element</li>
+                <li><code>vw/vh</code> - Percentage of viewport width/height</li>
+                <li><code>rem</code> - Relative to root element font size</li>
+                <li><code>em</code> - Relative to parent element font size</li>
+                <li><code>fr</code> - Fractional units in CSS Grid</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>CSS Variables and Custom Properties</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Defining Variables</h3>
+              <p>CSS custom properties (variables) allow you to store specific values to reuse throughout a document.</p>
+              <pre><code class="language-css">:root {
+  --primary-color: #00d4ff;
+  --secondary-color: #ff4df4;
+  --spacing: 1rem;
+  --border-radius: 0.75rem;
+}</code></pre>
+            </div>
+            <div>
+              <h3>Using Variables</h3>
+              <p>Reference variables using the var() function anywhere in your CSS.</p>
+              <pre><code class="language-css">.button {
+  background-color: var(--primary-color);
+  padding: var(--spacing);
+  border-radius: var(--border-radius);
+}
+
+.card {
+  border: 1px solid var(--secondary-color);
+  margin-bottom: calc(var(--spacing) * 2);
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>CSS Animations and Transitions</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Transitions</h3>
+              <p>Gradually change property values over a specified duration.</p>
+              <pre><code class="language-css">.element {
+  transition: all 0.3s ease;
+}
+
+.element:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}</code></pre>
+            </div>
+            <div>
+              <h3>Animations</h3>
+              <p>Create complex animations using keyframes.</p>
+              <pre><code class="language-css">@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.element {
+  animation: fadeIn 0.5s ease forwards;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script>
+    // Load components
+    window.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar functionality
+          if (typeof initNavbar === 'function') initNavbar();
+        });
+      
+      // Load footer
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+    });
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/eastereggs.js"></script>
+</body>
+</html>

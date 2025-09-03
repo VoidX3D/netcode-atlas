@@ -1,0 +1,160 @@
+<!-- dns.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DNS Explained - NetCode Atlas</title>
+  <meta name="description" content="Learn how the Domain Name System works and why it's essential for the internet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Domain Name System (DNS)</h1>
+        <p>The phonebook of the internet that translates domain names to IP addresses</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-section">
+          <div class="content-grid">
+            <div>
+              <h2>What is DNS?</h2>
+              <p>The Domain Name System (DNS) is a hierarchical and decentralized naming system for computers, services, or other resources connected to the Internet or a private network. It translates human-readable domain names (like netcode-atlas.dev) to machine-readable IP addresses (like 192.0.2.1).</p>
+              <p>DNS is often described as the "phonebook of the Internet" because it helps users connect to websites using familiar domain names instead of having to memorize numerical IP addresses.</p>
+            </div>
+            <div class="content-image">
+              <img src="../../public/images/dns-diagram.svg" alt="DNS resolution process diagram" width="500" height="300">
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>How DNS Works</h2>
+          <p>The DNS resolution process involves several steps that happen in milliseconds:</p>
+          <ol>
+            <li>A user enters a domain name in their browser</li>
+            <li>The browser checks its cache for a recent DNS lookup</li>
+            <li>If not cached, the request goes to a recursive DNS resolver</li>
+            <li>The resolver queries root servers, then TLD servers, then authoritative nameservers</li>
+            <li>The IP address is returned to the browser</li>
+            <li>The browser connects to the server using the IP address</li>
+          </ol>
+        </div>
+
+        <div class="content-section">
+          <h2>DNS Latency Comparison</h2>
+          <p>Different DNS resolvers have varying response times. Here's a comparison of average latency for popular DNS services:</p>
+          <div class="chart-container">
+            <canvas id="dns-latency-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>DNS Record Types</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>A Record</h3>
+              <p>Maps a domain name to an IPv4 address. The most fundamental DNS record type.</p>
+              <code>netcode-atlas.dev. 300 IN A 192.0.2.1</code>
+            </div>
+            <div class="card">
+              <h3>AAAA Record</h3>
+              <p>Maps a domain name to an IPv6 address. The IPv6 equivalent of an A record.</p>
+              <code>netcode-atlas.dev. 300 IN AAAA 2001:db8::1</code>
+            </div>
+            <div class="card">
+              <h3>CNAME Record</h3>
+              <p>Creates an alias from one domain name to another. Useful for subdomains or redirects.</p>
+              <code>www.netcode-atlas.dev. 300 IN CNAME netcode-atlas.dev.</code>
+            </div>
+            <div class="card">
+              <h3>MX Record</h3>
+              <p>Specifies mail servers for a domain, directing email to the correct mail servers.</p>
+              <code>netcode-atlas.dev. 300 IN MX 10 mail.netcode-atlas.dev.</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>DNS Security</h2>
+          <div class="content-grid">
+            <div>
+              <h3>DNSSEC</h3>
+              <p>DNS Security Extensions (DNSSEC) adds a layer of security to DNS by enabling DNS responses to be validated cryptographically. This prevents attackers from manipulating or poisoning DNS responses.</p>
+              
+              <h3>DoH and DoT</h3>
+              <p>DNS over HTTPS (DoH) and DNS over TLS (DoT) encrypt DNS queries to prevent eavesdropping and manipulation of DNS data by third parties.</p>
+            </div>
+            <div>
+              <h3>Common DNS Attacks</h3>
+              <ul>
+                <li><strong>DNS Spoofing/Cache Poisoning:</strong> Corrupting DNS data to redirect traffic to malicious sites</li>
+                <li><strong>DNS Tunneling:</strong> Using DNS queries to exfiltrate data or establish command and control channels</li>
+                <li><strong>DDoS Attacks:</strong> Overwhelming DNS servers with traffic to make domains unreachable</li>
+                <li><strong>Domain Hijacking:</strong> Unauthorized transfer of a domain name to another registrar</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Load components
+    window.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar functionality
+          if (typeof initNavbar === 'function') initNavbar();
+        });
+      
+      // Load footer
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+      
+      // Render DNS chart
+      if (typeof renderDNSLatencyChart === 'function') {
+        renderDNSLatencyChart();
+      }
+    });
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/eastereggs.js"></script>
+</body>
+</html>

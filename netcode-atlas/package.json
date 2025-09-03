@@ -1,0 +1,17 @@
+{
+  "name": "netcode-atlas",
+  "version": "1.0.0",
+  "description": "A modern educational hub about DNS, Internet protocols, and web technologies",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "build": "echo 'No build process needed'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": ["dns", "web-development", "education", "javascript", "python"],
+  "author": "Sincere Bhattarai",
+  "license": "MIT",
+  "dependencies": {
+    "chart.js": "^4.4.0"
+  }
+}

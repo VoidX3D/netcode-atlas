@@ -1,0 +1,172 @@
+<!-- internet.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet Protocols - NetCode Atlas</title>
+  <meta name="description" content="Learn about HTTP, TCP/IP, UDP, and other essential internet protocols">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Internet Protocols</h1>
+        <p>The rules and standards that govern communication across the internet</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-section">
+          <div class="content-grid">
+            <div>
+              <h2>What are Internet Protocols?</h2>
+              <p>Internet protocols are sets of rules that define how data is transmitted and received over networks. They ensure that devices can communicate with each other regardless of their underlying hardware or software.</p>
+              <p>The internet protocol suite, commonly known as TCP/IP, provides end-to-end data communication specifying how data should be packetized, addressed, transmitted, routed, and received.</p>
+            </div>
+            <div class="content-image">
+              <img src="../../public/images/protocols-diagram.svg" alt="Internet protocol layers diagram" width="500" height="300">
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Protocol Adoption Over Time</h2>
+          <p>The internet has evolved significantly, with new protocols being developed and adopted to improve security, performance, and capabilities:</p>
+          <div class="chart-container">
+            <canvas id="protocols-adoption-chart"></canvas>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Key Internet Protocols</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>HTTP/HTTPS</h3>
+              <p>Hypertext Transfer Protocol (Secure) is the foundation of data communication for the World Wide Web.</p>
+              <code>GET /index.html HTTP/1.1
+Host: www.example.com</code>
+            </div>
+            <div class="card">
+              <h3>TCP</h3>
+              <p>Transmission Control Protocol provides reliable, ordered, and error-checked delivery of data.</p>
+              <code>Source Port: 54321
+Destination Port: 80
+Sequence Number: 1234567890</code>
+            </div>
+            <div class="card">
+              <h3>UDP</h3>
+              <p>User Datagram Protocol provides connectionless communication with minimal protocol mechanism.</p>
+              <code>Source Port: 12345
+Destination Port: 53
+Length: 512 bytes</code>
+            </div>
+            <div class="card">
+              <h3>IP</h3>
+              <p>Internet Protocol delivers packets from the source host to the destination host based on IP addresses.</p>
+              <code>Source: 192.168.1.100
+Destination: 93.184.216.34
+TTL: 64</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>HTTP Evolution</h2>
+          <div class="content-grid">
+            <div>
+              <h3>HTTP/1.0 (1996)</h3>
+              <p>The first protocol version to specify version numbers. Each request requires a separate TCP connection.</p>
+              
+              <h3>HTTP/1.1 (1997)</h3>
+              <p>Introduced persistent connections, chunked transfer encoding, and additional cache mechanisms.</p>
+            </div>
+            <div>
+              <h3>HTTP/2 (2015)</h3>
+              <p>Major revision that introduced multiplexing, header compression, and server push capabilities.</p>
+              
+              <h3>HTTP/3 (2022)</h3>
+              <p>Uses QUIC transport protocol over UDP instead of TCP, reducing connection establishment latency.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Security Protocols</h2>
+          <div class="content-grid">
+            <div>
+              <h3>TLS/SSL</h3>
+              <p>Transport Layer Security and its predecessor Secure Sockets Layer provide communications security over a computer network.</p>
+              
+              <h3>HTTPS</h3>
+              <p>HTTP Secure is the combination of HTTP with TLS to provide encrypted communication and secure identification.</p>
+            </div>
+            <div>
+              <h3>DNSSEC</h3>
+              <p>DNS Security Extensions add security to the Domain Name System by enabling cryptographic authentication.</p>
+              
+              <h3>SSH</h3>
+              <p>Secure Shell provides a secure channel over an unsecured network for remote login and other secure network services.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Load components
+    window.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar functionality
+          if (typeof initNavbar === 'function') initNavbar();
+        });
+      
+      // Load footer
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+      
+      // Render protocols chart
+      if (typeof renderProtocolsAdoptionChart === 'function') {
+        renderProtocolsAdoptionChart();
+      }
+    });
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/charts.js"></script>
+  <script src="../js/eastereggs.js"></script>
+</body>
+</html>

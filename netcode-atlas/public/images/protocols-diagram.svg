@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff" />
+      <stop offset="100%" stop-color="#ff4df4" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="400" fill="#0d1117" />
+  
+  <!-- Client -->
+  <rect x="50" y="150" width="100" height="100" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient2)" stroke-width="2" />
+  <text x="100" y="120" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Client</text>
+  
+  <!-- Server -->
+  <rect x="350" y="150" width="100" height="100" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient2)" stroke-width="2" />
+  <text x="400" y="120" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Server</text>
+  
+  <!-- Protocols -->
+  <rect x="200" y="50" width="400" height="60" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient2)" stroke-width="2" />
+  <text x="400" y="85" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Application Layer (HTTP, FTP, SMTP)</text>
+  
+  <rect x="200" y="130" width="400" height="60" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient2)" stroke-width="2" />
+  <text x="400" y="165" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Transport Layer (TCP, UDP)</text>
+  
+  <rect x="200" y="210" width="400" height="60" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient2)" stroke-width="2" />
+  <text x="400" y="245" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Internet Layer (IP)</text>
+  
+  <rect x="200" y="290" width="400" height="60" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient2)" stroke-width="2" />
+  <text x="400" y="325" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Network Interface (Ethernet, WiFi)</text>
+  
+  <!-- Connection lines -->
+  <line x1="150" y1="200" x2="200" y2="200" stroke="url(#gradient2)" stroke-width="2" />
+  <line x1="600" y1="200" x2="650" y2="200" stroke="url(#gradient2)" stroke-width="2" />
+  
+  <!-- Arrows -->
+  <polygon points="200,200 190,195 190,205" fill="url(#gradient2)" />
+  <polygon points="600,200 610,195 610,205" fill="url(#gradient2)" />
+</svg>

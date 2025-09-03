@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff" />
+      <stop offset="100%" stop-color="#ff4df4" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="800" height="400" fill="#0d1117" />
+  
+  <!-- Browser -->
+  <rect x="50" y="150" width="100" height="100" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient)" stroke-width="2" />
+  <text x="100" y="120" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Browser</text>
+  
+  <!-- Resolver -->
+  <rect x="300" y="150" width="100" height="100" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient)" stroke-width="2" />
+  <text x="350" y="120" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Resolver</text>
+  
+  <!-- Root Server -->
+  <rect x="550" y="50" width="100" height="100" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient)" stroke-width="2" />
+  <text x="600" y="30" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Root Server</text>
+  
+  <!-- TLD Server -->
+  <rect x="550" y="250" width="100" height="100" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient)" stroke-width="2" />
+  <text x="600" y="230" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">TLD Server</text>
+  
+  <!-- Authoritative Server -->
+  <rect x="700" y="150" width="100" height="100" rx="10" fill="rgba(0,212,255,0.1)" stroke="url(#gradient)" stroke-width="2" />
+  <text x="750" y="120" text-anchor="middle" fill="#f0f6fc" font-family="Inter" font-size="14">Authoritative</text>
+  
+  <!-- Connection lines -->
+  <line x1="150" y1="200" x2="300" y2="200" stroke="url(#gradient)" stroke-width="2" />
+  <line x1="400" y1="200" x2="550" y2="100" stroke="url(#gradient)" stroke-width="2" />
+  <line x1="400" y1="200" x2="550" y2="300" stroke="url(#gradient)" stroke-width="2" />
+  <line x1="650" y1="100" x2="700" y2="150" stroke="url(#gradient)" stroke-width="2" />
+  <line x1="650" y1="300" x2="700" y2="200" stroke="url(#gradient)" stroke-width="2" />
+  
+  <!-- Arrows -->
+  <polygon points="300,200 290,195 290,205" fill="url(#gradient)" />
+  <polygon points="550,100 540,95 540,105" fill="url(#gradient)" />
+  <polygon points="550,300 540,295 540,305" fill="url(#gradient)" />
+  <polygon points="700,150 690,145 690,155" fill="url(#gradient)" />
+  <polygon points="700,200 690,195 690,205" fill="url(#gradient)" />
+  
+  <!-- Labels -->
+  <text x="225" y="190" text-anchor="middle" fill="#00d4ff" font-family="Fira Code" font-size="12">DNS Query</text>
+  <text x="475" y="90" text-anchor="middle" fill="#00d4ff" font-family="Fira Code" font-size="12">Referral</text>
+  <text x="475" y="290" text-anchor="middle" fill="#00d4ff" font-family="Fira Code" font-size="12">Referral</text>
+</svg>

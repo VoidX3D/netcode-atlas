@@ -1,0 +1,12 @@
+[
+  {"tld": ".com", "share": 47.3},
+  {"tld": ".org", "share": 7.8},
+  {"tld": ".net", "share": 6.5},
+  {"tld": ".io", "share": 5.2},
+  {"tld": ".co", "share": 4.7},
+  {"tld": ".edu", "share": 3.9},
+  {"tld": ".gov", "share": 3.2},
+  {"tld": ".info", "share": 2.8},
+  {"tld": ".biz", "share": 2.1},
+  {"tld": "Others", "share": 16.5}
+]
