@@ -1,1 +1,110 @@
 <!-- signup.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - NetCode Atlas</title>
+  <meta name="description" content="Create your NetCode Atlas account to access exclusive resources">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <section class="auth-container">
+      <div class="auth-card">
+        <div class="auth-header">
+          <h2>Create Your Account</h2>
+          <p>Join thousands of developers learning about web technologies</p>
+        </div>
+
+        <form id="register-form" class="auth-form">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required autocomplete="name">
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required autocomplete="new-password" minlength="8">
+            <small>Must be at least 8 characters long</small>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" name="confirm-password" required autocomplete="new-password">
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="terms" name="terms" required>
+              <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="newsletter" name="newsletter">
+              <span>Send me occasional updates about new features and resources</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn" style="width: 100%;">Create Account</button>
+        </form>
+
+        <div class="auth-footer">
+          <p>Already have an account? <a href="login.html">Sign in here</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script>
+    // Load components
+    window.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar functionality
+          if (typeof initNavbar === 'function') initNavbar();
+        });
+      
+      // Load footer
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+    });
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/eastereggs.js"></script>
+</body>
+</html>
