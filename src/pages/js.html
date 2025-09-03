@@ -1,1 +1,352 @@
 <!-- js.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Guide - NetCode Atlas</title>
+  <meta name="description" content="Learn JavaScript fundamentals, DOM manipulation, ES6+ features, and modern web development">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>JavaScript</h1>
+        <p>The programming language that makes web pages interactive and dynamic</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-section">
+          <div class="content-grid">
+            <div>
+              <h2>What is JavaScript?</h2>
+              <p>JavaScript is a high-level, interpreted programming language that conforms to the ECMAScript specification. It is a language that is also characterized as dynamic, weakly typed, prototype-based and multi-paradigm.</p>
+              <p>JavaScript was created by Brendan Eich in 1995 while working at Netscape Communications. It was originally named Mocha, then LiveScript, and finally JavaScript.</p>
+            </div>
+            <div class="content-image">
+              <img src="../../public/images/js-events.svg" alt="JavaScript event handling diagram" width="500" height="300">
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>JavaScript Fundamentals</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Variables and Data Types</h3>
+              <pre><code class="language-javascript">// Variable declaration
+let message = "Hello";
+const pi = 3.14159;
+var count = 0;
+
+// Data types
+let string = "Text";
+let number = 42;
+let boolean = true;
+let array = [1, 2, 3];
+let object = { key: "value" };
+let nullValue = null;
+let undefinedValue;</code></pre>
+            </div>
+            <div class="card">
+              <h3>Functions</h3>
+              <pre><code class="language-javascript">// Function declaration
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+// Arrow function (ES6+)
+const multiply = (a, b) => a * b;
+
+// Callback function
+setTimeout(() => {
+  console.log("Delayed message");
+}, 1000);</code></pre>
+            </div>
+            <div class="card">
+              <h3>Control Flow</h3>
+              <pre><code class="language-javascript">// Conditional statements
+if (age >= 18) {
+  console.log("Adult");
+} else if (age >= 13) {
+  console.log("Teenager");
+} else {
+  console.log("Child");
+}
+
+// Loops
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+// Switch statement
+switch (day) {
+  case "Monday":
+    console.log("Start of work week");
+    break;
+  default:
+    console.log("Other day");
+}</code></pre>
+            </div>
+            <div class="card">
+              <h3>Objects and Arrays</h3>
+              <pre><code class="language-javascript">// Object literal
+const person = {
+  name: "Alice",
+  age: 30,
+  greet() {
+    return `Hello, I'm ${this.name}`;
+  }
+};
+
+// Array methods
+const numbers = [1, 2, 3, 4, 5];
+const doubled = numbers.map(n => n * 2);
+const evens = numbers.filter(n => n % 2 === 0);
+const sum = numbers.reduce((total, n) => total + n, 0);</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>DOM Manipulation</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Selecting Elements</h3>
+              <pre><code class="language-javascript">// Select single element
+const header = document.querySelector('header');
+const mainHeading = document.getElementById('main-heading');
+
+// Select multiple elements
+const paragraphs = document.querySelectorAll('p');
+const listItems = document.getElementsByClassName('list-item');</code></pre>
+            </div>
+            <div>
+              <h3>Modifying Elements</h3>
+              <pre><code class="language-javascript">// Change content
+element.textContent = 'New text';
+element.innerHTML = '<strong>Bold text</strong>';
+
+// Modify attributes
+element.setAttribute('id', 'new-id');
+element.classList.add('active');
+element.classList.remove('hidden');
+
+// Change styles
+element.style.color = 'blue';
+element.style.backgroundColor = '#f0f0f0';</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Event Handling</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Event Listeners</h3>
+              <pre><code class="language-javascript">// Add event listener
+button.addEventListener('click', function(event) {
+  console.log('Button clicked!');
+  event.preventDefault();
+});
+
+// Common events
+document.addEventListener('DOMContentLoaded', init);
+window.addEventListener('resize', handleResize);
+form.addEventListener('submit', handleSubmit);
+input.addEventListener('input', handleInput);</code></pre>
+            </div>
+            <div>
+              <h3>Event Delegation</h3>
+              <pre><code class="language-javascript">// Instead of adding listeners to each item
+listItems.forEach(item => {
+  item.addEventListener('click', handleClick);
+});
+
+// Use event delegation on parent
+list.addEventListener('click', function(event) {
+  if (event.target.tagName === 'LI') {
+    handleClick(event.target);
+  }
+});</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Modern JavaScript (ES6+)</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Template Literals</h3>
+              <pre><code class="language-javascript">// Instead of concatenation
+const greeting = 'Hello, ' + name + '!';
+
+// Use template literals
+const greeting = `Hello, ${name}!`;
+const multiline = `
+  This is a
+  multiline string
+`;</code></pre>
+            </div>
+            <div class="card">
+              <h3>Destructuring</h3>
+              <pre><code class="language-javascript">// Object destructuring
+const { name, age, city } = person;
+const { name: firstName, ...rest } = person;
+
+// Array destructuring
+const [first, second, ...others] = numbers;</code></pre>
+            </div>
+            <div class="card">
+              <h3>Spread and Rest Operators</h3>
+              <pre><code class="language-javascript">// Spread operator
+const combined = [...array1, ...array2];
+const clone = { ...original };
+
+// Rest parameters
+function sum(...numbers) {
+  return numbers.reduce((total, n) => total + n, 0);
+}</code></pre>
+            </div>
+            <div class="card">
+              <h3>Promises and Async/Await</h3>
+              <pre><code class="language-javascript">// Promises
+fetch('/api/data')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+
+// Async/await
+async function getData() {
+  try {
+    const response = await fetch('/api/data');
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>JavaScript Modules</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Exporting</h3>
+              <pre><code class="language-javascript">// Named exports
+export const pi = 3.14159;
+export function calculateArea(radius) {
+  return pi * radius * radius;
+}
+
+// Default export
+export default class Calculator {
+  // class implementation
+}</code></pre>
+            </div>
+            <div>
+              <h3>Importing</h3>
+              <pre><code class="language-javascript">// Import named exports
+import { pi, calculateArea } from './math.js';
+
+// Import default export
+import Calculator from './calculator.js';
+
+// Import everything
+import * as math from './math.js';</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Error Handling</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Try/Catch</h3>
+              <pre><code class="language-javascript">try {
+  // Code that might throw an error
+  const result = riskyOperation();
+  console.log(result);
+} catch (error) {
+  // Handle the error
+  console.error('An error occurred:', error.message);
+  // Optionally re-throw the error
+  throw error;
+} finally {
+  // Code that runs regardless of success/failure
+  cleanup();
+}</code></pre>
+            </div>
+            <div>
+              <h3>Custom Errors</h3>
+              <pre><code class="language-javascript">class ValidationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'ValidationError';
+  }
+}
+
+function validateInput(input) {
+  if (!input) {
+    throw new ValidationError('Input cannot be empty');
+  }
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script>
+    // Load components
+    window.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar functionality
+          if (typeof initNavbar === 'function') initNavbar();
+        });
+      
+      // Load footer
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+    });
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/eastereggs.js"></script>
+</body>
+</html>
