@@ -1,1 +1,243 @@
 <!-- connectivity.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Network Connectivity - NetCode Atlas</title>
+  <meta name="description" content="Understand how network connectivity works from client to server">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Network Connectivity</h1>
+        <p>How data travels from your device to servers around the world and back</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-section">
+          <div class="content-grid">
+            <div>
+              <h2>How Internet Connectivity Works</h2>
+              <p>When you visit a website, your request travels through multiple network devices and infrastructure before reaching the destination server. This process involves several steps that happen in milliseconds.</p>
+              <p>The journey involves your local device, router, ISP infrastructure, internet backbone, and finally the destination server, with the response following the same path back to your device.</p>
+            </div>
+            <div class="content-image">
+              <img src="../../public/images/connectivity-map.svg" alt="Network connectivity path diagram" width="500" height="300">
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>The Journey of a Web Request</h2>
+          <div class="content-grid">
+            <div>
+              <h3>1. DNS Resolution</h3>
+              <p>Your browser first needs to translate the domain name (e.g., netcode-atlas.dev) into an IP address. This involves querying DNS resolvers until it finds the authoritative nameserver for the domain.</p>
+              
+              <h3>2. TCP Handshake</h3>
+              <p>Your device establishes a TCP connection with the server using a three-way handshake:
+                <br>1. SYN - Client sends synchronization request
+                <br>2. SYN-ACK - Server acknowledges and responds
+                <br>3. ACK - Client acknowledges the response
+              </p>
+            </div>
+            <div>
+              <h3>3. TLS Negotiation</h3>
+              <p>For HTTPS connections, a TLS handshake occurs to establish an encrypted connection:
+                <br>• Client hello with supported cipher suites
+                <br>• Server hello with chosen cipher suite and certificate
+                <br>• Key exchange and encryption setup
+              </p>
+              
+              <h3>4. HTTP Request/Response</h3>
+              <p>Your browser sends an HTTP request for the specific resource. The server processes the request and returns an HTTP response with the requested content or an error message.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Network Infrastructure Components</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Routers</h3>
+              <p>Devices that forward data packets between computer networks. Routers use routing tables to determine the best path for forwarding packets.</p>
+            </div>
+            <div class="card">
+              <h3>Switches</h3>
+              <p>Network devices that connect devices on a computer network by using packet switching to receive and forward data to the destination device.</p>
+            </div>
+            <div class="card">
+              <h3>Firewalls</h3>
+              <p>Network security systems that monitor and control incoming and outgoing network traffic based on predetermined security rules.</p>
+            </div>
+            <div class="card">
+              <h3>Load Balancers</h3>
+              <p>Devices that distribute network or application traffic across multiple servers to ensure no single server becomes overwhelmed.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Internet Backbone</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Tier 1 Networks</h3>
+              <p>These are the highest level of internet service providers that have access to all networks on the internet without purchasing IP transit. Examples include AT&T, Verizon, Lumen (CenturyLink), and NTT.</p>
+              
+              <h3>Peering Agreements</h3>
+              <p>Internet service providers connect their networks and exchange traffic without charging each other, which helps reduce costs and improve performance for both networks.</p>
+            </div>
+            <div>
+              <h3>Internet Exchange Points (IXPs)</h3>
+              <p>Physical infrastructure through which internet service providers exchange internet traffic between their networks. IXPs reduce the portion of an ISP's traffic that must be delivered via upstream providers.</p>
+              
+              <h3>Content Delivery Networks (CDNs)</h3>
+              <p>Geographically distributed networks of proxy servers and their data centers that help reduce latency by serving content from locations closer to users.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Network Protocols in Action</h2>
+          <div class="content-grid">
+            <div>
+              <h3>IP (Internet Protocol)</h3>
+              <p>Responsible for addressing and routing packets across network boundaries. Each device on the internet has a unique IP address.</p>
+              <code>IPv4: 192.168.1.1
+IPv6: 2001:0db8:85a3:0000:0000:8a2e:0370:7334</code>
+              
+              <h3>TCP (Transmission Control Protocol)</h3>
+              <p>Provides reliable, ordered, and error-checked delivery of a stream of bytes between applications running on hosts communicating via an IP network.</p>
+            </div>
+            <div>
+              <h3>UDP (User Datagram Protocol)</h3>
+              <p>A simpler connectionless protocol that provides a mechanism to detect corrupt data in packets, but does not guarantee delivery or correct sequencing.</p>
+              
+              <h3>HTTP/HTTPS (Hypertext Transfer Protocol)</h3>
+              <p>Application-layer protocols for distributed, collaborative, hypermedia information systems. HTTPS adds encryption through TLS/SSL.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Measuring Network Performance</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Latency</h3>
+              <p>The time it takes for a data packet to travel from source to destination. Measured in milliseconds (ms). Lower latency means faster response times.</p>
+            </div>
+            <div class="card">
+              <h3>Bandwidth</h3>
+              <p>The maximum rate of data transfer across a given path. Measured in bits per second (bps). Higher bandwidth allows more data to be transferred simultaneously.</p>
+            </div>
+            <div class="card">
+              <h3>Throughput</h3>
+              <p>The actual rate of successful message delivery over a communication channel. Often less than the maximum bandwidth due to various factors.</p>
+            </div>
+            <div class="card">
+              <h3>Packet Loss</h3>
+              <p>The percentage of packets that fail to reach their destination. High packet loss can significantly impact network performance.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Tools for Testing Connectivity</h2>
+          <div class="content-grid">
+            <div>
+              <h3>ping</h3>
+              <p>Tests reachability of a host and measures the round-trip time for messages sent from the originating host to a destination computer.</p>
+              <code>ping netcode-atlas.dev</code>
+              
+              <h3>traceroute/tracert</h3>
+              <p>Shows the path that packets take to reach a network host and measures transit delays of packets across an IP network.</p>
+              <code>traceroute netcode-atlas.dev</code>
+            </div>
+            <div>
+              <h3>nslookup/dig</h3>
+              <p>Network administration command-line tools for querying the Domain Name System to obtain domain name or IP address mapping.</p>
+              <code>nslookup netcode-atlas.dev
+dig netcode-atlas.dev</code>
+              
+              <h3>speedtest</h3>
+              <p>Measures internet connection parameters such as latency, download speed, and upload speed.</p>
+              <code>speedtest-cli</code>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Common Connectivity Issues</h2>
+          <div class="content-grid">
+            <div>
+              <h3>DNS Resolution Failures</h3>
+              <p>When the domain name cannot be resolved to an IP address. Can be caused by misconfigured DNS settings, DNS server issues, or domain registration problems.</p>
+              
+              <h3>Routing Issues</h3>
+              <p>Problems with the path that packets take through the network. Can be caused by misconfigured routers, network congestion, or peering disputes.</p>
+            </div>
+            <div>
+              <h3>Firewall Blocking</h3>
+              <p>When a firewall prevents communication between your device and the destination server. Often happens with corporate networks or restrictive ISP policies.</p>
+              
+              <h3>Server Overload</h3>
+              <p>When the destination server is receiving more requests than it can handle, resulting in slow responses or connection timeouts.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script>
+    // Load components
+    window.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar functionality
+          if (typeof initNavbar === 'function') initNavbar();
+        });
+      
+      // Load footer
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+    });
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/eastereggs.js"></script>
+</body>
+</html>
