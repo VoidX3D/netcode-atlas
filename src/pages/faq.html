@@ -1,1 +1,344 @@
 <!-- faq.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - NetCode Atlas</title>
+  <meta name="description" content="Frequently asked questions about DNS, web technologies, and internet protocols">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about web technologies and internet protocols</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-section">
+          <div class="search-container">
+            <input type="text" id="faq-search" placeholder="Search questions..." class="search-input">
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>DNS Questions</h2>
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question">
+                What is DNS and how does it work?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>DNS (Domain Name System) is the phonebook of the internet. It translates human-readable domain names (like netcode-atlas.dev) into machine-readable IP addresses (like 192.0.2.1). When you enter a URL in your browser, it queries DNS servers to find the corresponding IP address before establishing a connection to the website.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is the difference between authoritative and recursive DNS servers?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p><strong>Authoritative DNS servers</strong> store the actual DNS records for specific domains. They provide definitive answers to DNS queries for those domains.</p>
+                <p><strong>Recursive DNS servers</strong> (or resolvers) act as intermediaries between clients and authoritative servers. They receive DNS queries from clients, perform the necessary lookups across multiple DNS servers, and return the final answer to the client.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is DNS caching and how does it improve performance?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>DNS caching stores DNS query results temporarily to improve performance and reduce load on DNS servers. When a DNS resolver receives a query, it first checks its cache. If the answer exists and hasn't expired (based on TTL values), it returns the cached result instead of querying authoritative servers again.</p>
+                <p>Caching occurs at multiple levels: operating system, browser, ISP resolvers, and other intermediate DNS servers.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What are DNS record types and their purposes?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Common DNS record types include:</p>
+                <ul>
+                  <li><strong>A Record</strong> - Maps a domain to an IPv4 address</li>
+                  <li><strong>AAAA Record</strong> - Maps a domain to an IPv6 address</li>
+                  <li><strong>CNAME Record</strong> - Creates an alias from one domain to another</li>
+                  <li><strong>MX Record</strong> - Specifies mail servers for a domain</li>
+                  <li><strong>TXT Record</strong> - Stores text information, often for verification</li>
+                  <li><strong>NS Record</strong> - Specifies authoritative name servers</li>
+                  <li><strong>SOA Record</strong> - Stores administrative information about a zone</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is DNSSEC and why is it important?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>DNSSEC (DNS Security Extensions) adds security to the Domain Name System by enabling DNS responses to be validated cryptographically. It protects against attacks like DNS cache poisoning and spoofing by providing:</p>
+                <ul>
+                  <li>Data origin authentication - Verifying that data came from the correct source</li>
+                  <li>Data integrity protection - Ensuring data wasn't modified in transit</li>
+                </ul>
+                <p>DNSSEC uses public-key cryptography to create digital signatures for DNS data, allowing resolvers to verify the authenticity of DNS responses.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Web Technology Questions</h2>
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question">
+                What is the difference between HTTP/1.1, HTTP/2, and HTTP/3?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p><strong>HTTP/1.1</strong> (1997): Uses multiple TCP connections for parallel requests, has header redundancy, and no prioritization.</p>
+                <p><strong>HTTP/2</strong> (2015): Introduces multiplexing (multiple requests over a single connection), header compression, server push, and request prioritization.</p>
+                <p><strong>HTTP/3</strong> (2022): Uses QUIC protocol over UDP instead of TCP, reducing connection establishment latency and improving performance especially on lossy networks.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is CORS and how does it work?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>CORS (Cross-Origin Resource Sharing) is a security mechanism that allows web applications running at one origin to access resources from a different origin. Browsers enforce the same-origin policy by default, which prevents web pages from making requests to a different domain than the one that served the web page.</p>
+                <p>CORS works by using additional HTTP headers that tell browsers to give a web application running at one origin, access to selected resources from a different origin.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is Content Security Policy (CSP)?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Content Security Policy (CSP) is a security standard that helps prevent cross-site scripting (XSS), clickjacking, and other code injection attacks. It allows website administrators to specify which domains the browser should consider as valid sources of executable scripts, styles, images, and other resources.</p>
+                <p>CSP is implemented via HTTP headers or meta tags and works by whitelisting sources of approved content, preventing the browser from loading malicious assets.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What are WebSockets and how do they differ from HTTP?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>WebSockets provide full-duplex communication channels over a single TCP connection, allowing real-time data exchange between client and server. Key differences from HTTP:</p>
+                <ul>
+                  <li><strong>Connection</strong>: WebSockets maintain a persistent connection, while HTTP creates new connections for each request</li>
+                  <li><strong>Communication</strong>: WebSockets enable bidirectional communication, while HTTP is primarily request-response</li>
+                  <li><strong>Overhead</strong>: WebSockets have lower overhead after the initial handshake</li>
+                  <li><strong>Use cases</strong>: WebSockets are ideal for real-time applications like chat, gaming, and live updates</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is the difference between cookies, localStorage, and sessionStorage?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p><strong>Cookies</strong>: Small pieces of data sent from a website and stored on the user's computer. They are sent with every HTTP request to the domain, have size limits (~4KB), and can have expiration dates.</p>
+                <p><strong>localStorage</strong>: Web storage API that allows JavaScript to store data in the browser with no expiration time. Data persists until explicitly deleted, with larger storage limits (typically 5-10MB).</p>
+                <p><strong>sessionStorage</strong>: Similar to localStorage but data is cleared when the page session ends (when the browser is closed). Useful for temporary data that shouldn't persist across sessions.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Security Questions</h2>
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question">
+                What is HTTPS and how does it work?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>HTTPS (Hypertext Transfer Protocol Secure) is the secure version of HTTP that uses encryption to protect data in transit. It works using TLS (Transport Layer Security) or its predecessor SSL (Secure Sockets Layer) to encrypt communications between web browsers and servers.</p>
+                <p>The HTTPS process involves:
+                  <br>1. TCP connection establishment
+                  <br>2. TLS handshake to establish encryption parameters
+                  <br>3. Certificate verification to ensure server authenticity
+                  <br>4. Encrypted data exchange using symmetric cryptography
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What are SSL/TLS certificates and how are they verified?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>SSL/TLS certificates are digital documents that bind a cryptographic key to an organization's details. They are used to authenticate the identity of a website and enable encrypted connections.</p>
+                <p>Certificate verification involves:
+                  <br>1. Checking the certificate's validity period
+                  <br>2. Verifying the certificate signature against a trusted Certificate Authority (CA)
+                  <br>3. Ensuring the certificate matches the requested domain name
+                  <br>4. Checking for certificate revocation through CRL or OCSP
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is two-factor authentication (2FA) and how does it work?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Two-factor authentication (2FA) is a security process that requires users to provide two different authentication factors to verify their identity. These factors typically fall into three categories:</p>
+                <ul>
+                  <li><strong>Knowledge</strong> - Something you know (password, PIN)</li>
+                  <li><strong>Possession</strong> - Something you have (phone, security key)</li>
+                  <li><strong>Inherence</strong> - Something you are (fingerprint, facial recognition)</li>
+                </ul>
+                <p>2FA works by requiring a combination of two factors, making it significantly harder for attackers to gain unauthorized access even if they compromise one factor (like a password).</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is a CDN and how does it improve security?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>A CDN (Content Delivery Network) is a geographically distributed network of proxy servers and their data centers that helps deliver content efficiently to users. CDNs improve security by:</p>
+                <ul>
+                  <li>DDoS protection - Absorbing and mitigating distributed denial-of-service attacks</li>
+                  <li>Web application firewall (WAF) - Filtering and monitoring HTTP traffic</li>
+                  <li>SSL/TLS termination - Handling encryption/decryption at the edge</li>
+                  <li>Bot mitigation - Identifying and blocking malicious bots</li>
+                  <li>Obfuscating origin server IP - Protecting the actual server from direct attacks</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is the same-origin policy and why is it important?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>The same-origin policy is a critical security mechanism that restricts how a document or script loaded from one origin can interact with a resource from another origin. Two URLs have the same origin if they have the same protocol, host, and port.</p>
+                <p>This policy is important because it prevents malicious scripts from one origin from accessing sensitive data from another origin. It helps isolate potentially malicious documents, reducing possible attack vectors.</p>
+                <p>Cross-origin interactions are possible through mechanisms like CORS, but they require explicit permission from the server.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Performance Questions</h2>
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question">
+                What factors affect website loading speed?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Website loading speed is affected by numerous factors including:</p>
+                <ul>
+                  <li><strong>Network factors</strong>: Latency, bandwidth, packet loss</li>
+                  <li><strong>Server factors</strong>: Server processing power, database queries, application logic</li>
+                  <li><strong>Content factors</strong>: Number of requests, file sizes, compression</li>
+                  <li><strong>Client factors</strong>: Browser capabilities, device performance, cache status</li>
+                  <li><strong>DNS resolution time</strong>: Time to resolve domain names to IP addresses</li>
+                  <li><strong>SSL/TLS negotiation</strong>: Time to establish secure connections</li>
+                  <li><strong>Render blocking resources</strong>: CSS and JavaScript that delay page rendering</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                How does browser caching work and how can it be optimized?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Browser caching stores web resources locally so they can be reused instead of re-downloaded on subsequent visits. Optimization strategies include:</p>
+                <ul>
+                  <li>Setting appropriate Cache-Control headers with max-age directives</li>
+                  <li>Using ETags for validation of unchanged resources</li>
+                  <li>Implementing versioning or fingerprinting for static assets</li>
+                  <li>Leveraging CDNs for edge caching</li>
+                  <li>Using service workers for programmatic caching control</li>
+                  <li>Setting different caching policies for different resource types</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What is lazy loading and how does it improve performance?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>Lazy loading is a technique that delays the loading of non-critical resources until they are needed. Instead of loading all resources when the page first loads, lazy loading defers loading of below-the-fold content or content that might not be needed immediately.</p>
+                <p>Benefits include:
+                  <br>• Reduced initial page load time
+                  <br>• Lower bandwidth consumption
+                  <br>• Reduced system resource usage
+                  <br>• Improved perceived performance
+                </p>
+                <p>Modern browsers support native lazy loading for images and iframes using the <code>loading="lazy"</code> attribute.</p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                What are critical rendering path optimizations?
+                <span class="faq-toggle">+</span>
+              </div>
+              <div class="faq-answer">
+                <p>The critical rendering path is the sequence of steps the browser goes through to convert HTML, CSS, and JavaScript into pixels on the screen. Optimizations include:</p>
+                <ul>
+                  <li>Minifying and compressing resources</li>
+                  <li>Eliminating render-blocking resources</li>
+                  <li>Optimizing CSS delivery (inline critical CSS)</li>
+                  <li>Deferring non-critical JavaScript</li>
+                  <li>Preloading important resources</li>
+                  <li>Reducing the number of critical resources</li>
+                  <li>Minimizing the length of the critical path</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                How d
