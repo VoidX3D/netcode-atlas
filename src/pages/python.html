@@ -1,1 +1,356 @@
 <!-- python.html placeholder -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python Guide - NetCode Atlas</title>
+  <meta name="description" content="Learn Python programming, web frameworks, and backend development">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/pages.css">
+  
+  <!-- PWA -->
+  <link rel="manifest" href="../../public/manifest.json">
+  <meta name="theme-color" content="#0d1117">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="../../public/images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+  <!-- Navigation -->
+  <div id="navbar-container"></div>
+
+  <main id="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Python for Web Development</h1>
+        <p>A versatile programming language for backend development, data analysis, and automation</p>
+      </div>
+    </section>
+
+    <!-- Page Content -->
+    <section class="page-content">
+      <div class="container">
+        <div class="content-section">
+          <div class="content-grid">
+            <div>
+              <h2>What is Python?</h2>
+              <p>Python is a high-level, interpreted programming language known for its clear syntax and readability. Created by Guido van Rossum and first released in 1991, Python's design philosophy emphasizes code readability with its notable use of significant whitespace.</p>
+              <p>Python is widely used for web development, scientific computing, data analysis, artificial intelligence, and more. Its large standard library and ecosystem of third-party packages make it a versatile choice for many applications.</p>
+            </div>
+            <div class="content-image">
+              <img src="../../public/images/python-code.svg" alt="Python code example visualization" width="500" height="300">
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Python Basics</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>Variables and Data Types</h3>
+              <pre><code class="language-python"># Variable assignment
+name = "Alice"
+age = 30
+height = 5.8
+is_student = True
+
+# Data structures
+numbers = [1, 2, 3, 4, 5]  # List
+person = {"name": "Bob", "age": 25}  # Dictionary
+colors = {"red", "green", "blue"}  # Set
+coordinates = (10, 20)  # Tuple</code></pre>
+            </div>
+            <div class="card">
+              <h3>Control Flow</h3>
+              <pre><code class="language-python"># Conditional statements
+if age >= 18:
+    print("Adult")
+elif age >= 13:
+    print("Teenager")
+else:
+    print("Child")
+
+# Loops
+for i in range(5):
+    print(i)
+
+for color in colors:
+    print(color)
+
+while count < 10:
+    count += 1</code></pre>
+            </div>
+            <div class="card">
+              <h3>Functions</h3>
+              <pre><code class="language-python"># Function definition
+def greet(name):
+    return f"Hello, {name}!"
+
+# Function with default parameters
+def power(base, exponent=2):
+    return base ** exponent
+
+# Lambda function
+square = lambda x: x * x
+
+# Function call
+message = greet("Alice")
+result = power(3, 4)</code></pre>
+            </div>
+            <div class="card">
+              <h3>Classes and Objects</h3>
+              <pre><code class="language-python"># Class definition
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    
+    def greet(self):
+        return f"Hello, I'm {self.name}"
+
+# Object creation
+person = Person("Charlie", 35)
+greeting = person.greet()</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Python for Web Development</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Web Frameworks</h3>
+              <ul>
+                <li><strong>Django</strong> - High-level Python Web framework that encourages rapid development</li>
+                <li><strong>Flask</strong> - Lightweight WSGI web application framework</li>
+                <li><strong>FastAPI</strong> - Modern, fast web framework for building APIs</li>
+                <li><strong>Pyramid</strong> - Small, fast, down-to-earth Python web framework</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Template Engines</h3>
+              <ul>
+                <li><strong>Jinja2</strong> - Modern and designer-friendly templating language</li>
+                <li><strong>Django Templates</strong> - Django's built-in template system</li>
+                <li><strong>Mako</strong> - Hyperfast and lightweight templating for Python</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>FastAPI Example</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Basic API</h3>
+              <pre><code class="language-python">from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class Item(BaseModel):
+    name: str
+    price: float
+    is_offer: bool = None
+
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: str = None):
+    return {"item_id": item_id, "q": q}
+
+@app.put("/items/{item_id}")
+def update_item(item_id: int, item: Item):
+    return {"item_name": item.name, "item_id": item_id}</code></pre>
+            </div>
+            <div>
+              <h3>Running the API</h3>
+              <pre><code class="language-bash"># Install FastAPI and Uvicorn
+pip install fastapi uvicorn
+
+# Run the application
+uvicorn main:app --reload
+
+# API will be available at
+# http://localhost:8000
+
+# Interactive documentation at
+# http://localhost:8000/docs
+# http://localhost:8000/redoc</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Working with Databases</h2>
+          <div class="grid">
+            <div class="card">
+              <h3>SQLAlchemy (ORM)</h3>
+              <pre><code class="language-python">from sqlalchemy import create_engine, Column, Integer, String
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
+
+Base = declarative_base()
+
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, primary_key=True)
+    name = Column(String)
+    email = Column(String)
+
+engine = create_engine('sqlite:///users.db')
+Base.metadata.create_all(engine)
+
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# Add new user
+new_user = User(name="Alice", email="alice@example.com")
+session.add(new_user)
+session.commit()</code></pre>
+            </div>
+            <div class="card">
+              <h3>Database Operations</h3>
+              <pre><code class="language-python"># Query all users
+users = session.query(User).all()
+
+# Filter users
+user = session.query(User).filter_by(name="Alice").first()
+
+# Update user
+user.email = "new_email@example.com"
+session.commit()
+
+# Delete user
+session.delete(user)
+session.commit()</code></pre>
+            </div>
+            <div class="card">
+              <h3>Async Database with FastAPI</h3>
+              <pre><code class="language-python">from fastapi import FastAPI, Depends
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker
+
+app = FastAPI()
+
+# Async engine and session
+engine = create_async_engine("sqlite+aiosqlite:///./test.db")
+AsyncSessionLocal = sessionmaker(
+    engine, class_=AsyncSession, expire_on_commit=False
+)
+
+async def get_db():
+    async with AsyncSessionLocal() as session:
+        yield session
+
+@app.get("/users/{user_id}")
+async def read_user(user_id: int, db: AsyncSession = Depends(get_db)):
+    result = await db.execute(select(User).filter(User.id == user_id))
+    user = result.scalars().first()
+    return user</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Python Package Management</h2>
+          <div class="content-grid">
+            <div>
+              <h3>pip and Virtual Environments</h3>
+              <pre><code class="language-bash"># Create virtual environment
+python -m venv myenv
+
+# Activate on Windows
+myenv\Scripts\activate
+
+# Activate on Unix/MacOS
+source myenv/bin/activate
+
+# Install packages
+pip install fastapi uvicorn sqlalchemy
+
+# Freeze requirements
+pip freeze > requirements.txt
+
+# Install from requirements
+pip install -r requirements.txt</code></pre>
+            </div>
+            <div>
+              <h3>Popular Web Development Packages</h3>
+              <ul>
+                <li><strong>Requests</strong> - HTTP library for making requests</li>
+                <li><strong>BeautifulSoup</strong> - Web scraping library</li>
+                <li><strong>Pillow</strong> - Image processing library</li>
+                <li><strong>Celery</strong> - Distributed task queue</li>
+                <li><strong>Redis</strong> - Redis client for Python</li>
+                <li><strong>Pytest</strong> - Testing framework</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h2>Deployment Options</h2>
+          <div class="content-grid">
+            <div>
+              <h3>Platform as a Service (PaaS)</h3>
+              <ul>
+                <li><strong>Heroku</strong> - Cloud platform that supports Python</li>
+                <li><strong>PythonAnywhere</strong> - Hosting and development environment</li>
+                <li><strong>Google App Engine</strong> - Fully managed serverless platform</li>
+                <li><strong>Azure App Service</strong> - Microsoft's cloud app service</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Infrastructure as a Service (IaaS)</h3>
+              <ul>
+                <li><strong>AWS EC2</strong> - Virtual servers in the cloud</li>
+                <li><strong>DigitalOcean Droplets</strong> - Simple cloud servers</li>
+                <li><strong>Linode</strong> - Cloud computing platform</li>
+                <li><strong>Vultr</strong> - High-performance cloud compute</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer-container"></div>
+
+  <!-- JavaScript -->
+  <script>
+    // Load components
+    window.addEventListener('DOMContentLoaded', function() {
+      // Load navbar
+      fetch('../components/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('navbar-container').innerHTML = data;
+          // Initialize navbar functionality
+          if (typeof initNavbar === 'function') initNavbar();
+        });
+      
+      // Load footer
+      fetch('../components/footer.html')
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById('footer-container').innerHTML = data;
+        });
+    });
+  </script>
+  <script src="../js/main.js"></script>
+  <script src="../js/auth.js"></script>
+  <script src="../js/eastereggs.js"></script>
+</body>
+</html>
