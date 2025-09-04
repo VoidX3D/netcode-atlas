@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="400">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00d4ff"/>
+      <stop offset="100%" stop-color="#ff4df4"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="#0d1117"/>
+  <text x="400" y="200" text-anchor="middle" font-size="48" fill="url(#heroGrad)" font-family="Inter" font-weight="700">NetCode Atlas</text>
+  <!-- Example: network nodes -->
+  <circle cx="200" cy="100" r="10" fill="#00d4ff"/>
+  <circle cx="600" cy="100" r="10" fill="#ff4df4"/>
+  <circle cx="400" cy="300" r="10" fill="#00d4ff"/>
+  <line x1="200" y1="100" x2="400" y2="300" stroke="#00d4ff" stroke-width="2"/>
+  <line x1="600" y1="100" x2="400" y2="300" stroke="#ff4df4" stroke-width="2"/>
+</svg>

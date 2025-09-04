@@ -1,0 +1,8 @@
+<div style="width:250px; height:250px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <path fill="#264DE4" d="M19 3l8.2 92.7L63.9 125l36.7-29.4L108.8 3H19z"/>
+  <path fill="#2965F1" d="M64 117.8V11.5h44.7l-7.4 83.1L64 117.8z"/>
+  <path fill="#EBEBEB" d="M64 66.5H50.7l1.3 14.7H64v-14.7zm0-32.2H32.5l1.3 14.7H64V34.3z"/>
+  <path fill="#FFF" d="M64 83.4v14.7h19.8l1.8-20.1H64z"/>
+</svg>
+</div>

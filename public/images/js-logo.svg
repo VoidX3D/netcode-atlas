@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="grad-js" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F7DF1E"/>
+      <stop offset="100%" stop-color="#FFD93B"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="20" fill="url(#grad-js)" />
+  <text x="64" y="80" text-anchor="middle" fill="#000" font-size="60" font-family="Fira Code">JS</text>
+</svg>
